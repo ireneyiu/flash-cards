@@ -11,6 +11,6 @@ Matthew - Saturday noon to 3ish conflict
 
 Optional working in lunch
 
-Pairing for the most part.
+Pairing!
 
 Here is our [trello board](https://trello.com/b/nwR6fFmN/web-flash-cards)
