@@ -9,6 +9,7 @@
   <% else %>
   <h1>Feedback</h1>
   <p><%= feedback(@guess)%></p>
+  <p><strong><%= @card.term %></strong> was the answer.</p>
   <a href="/cards/<%= @card.id + 1 %>">Next</a>
 <% end %>
 </div>
