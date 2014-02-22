@@ -11,13 +11,13 @@ end
 
 get '/cards/:id' do
   @card = Card.find_by_id(params[:id])
-  erb :"rounds/show"
+  erb :card
 end
 
 post '/cards/:id' do
   @card = Card.find_by_id(params[:id])
-  correct = @card.term == params[:term]
-  @
+  @guess = (@card.term == params[:term])
+  erb :card
 end
 
 # Controller sends the card into page.
