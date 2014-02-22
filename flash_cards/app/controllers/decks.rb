@@ -14,7 +14,7 @@ post '/decks' do
 end
 
 get '/decks/:deck_id/cards/new' do
-  @deck_id = params[:deck_id]
+  @deck = Deck.find_by_id(params[:deck_id])
   erb :"cards/new"
 end
 
