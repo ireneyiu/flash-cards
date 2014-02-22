@@ -10,6 +10,8 @@ class InitialMigration < ActiveRecord::Migration
     create_table :rounds do |t|
       t.belongs_to :deck
       t.integer    :number
+      t.integer    :correct
+      t.integer    :incorrect
       t.timestamps
     end
 

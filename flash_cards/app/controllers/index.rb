@@ -1,3 +1,4 @@
+enable :sessions
 # get '/' do
 #   # Look in app/views/index.erb
 #   past_id = Round.last.id || 0
@@ -10,6 +11,7 @@ def login?
 end
 
 get '/' do
+<<<<<<< HEAD
 @alert = params[:alert] if params[:alert]
 erb :index
 end
@@ -57,12 +59,21 @@ get '/cards/:id' do
   @card = Card.find_by_id(params[:id])
   erb :card
 end
-
-post '/cards/:id' do
-  @card = Card.find_by_id(params[:id])
-  @guess = (@card.term == params[:term])
-  erb :card
+=======
+  "try /rounds/new/<deck num>"
 end
+
+# get '/cards/:id' do
+#   @card = Card.find_by_id(params[:id])
+#   erb :card
+# end
+>>>>>>> add core feature rounds, add/change corresponding views, add second small deck to db seed, add migration to track the number of right and wrong questions
+
+# post '/cards/:id' do
+#   @card = Card.find_by_id(params[:id])
+#   @guess = (@card.term.downcase == params[:term].downcase)
+#   erb :card
+# end
 
 # Controller sends the card into page.
 # If guess.empty?

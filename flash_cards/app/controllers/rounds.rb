@@ -1,57 +1,43 @@
-# # get "/rounds/:id/guesses/:id" do
 
-# #   @deck = Deck.first
-# #   @card =
-# #   erb :"rounds/show"
-# # end
+#please link your decks here to start a new round
+get "/rounds/new/:deck_id" do
+  deck = Deck.find_by_id(params[:deck_id])
+  if !!deck
+    session[ :remaining_cards ] = deck.cards.shuffle.map{|card| card.id }
+    round = Round.create(deck_id: params[:deck_id], correct: 0, incorrect: 0)
+    redirect "/rounds/#{params[:deck_id]}"
+  else
+    redirect "/"
+  end
+end
+ 
+get "/rounds/:id/end" do
+  @correct = session[:last_correct]
+  @card = Card.find_by_id( session[ :last_card ])
+  @round = Round.find_by_id( params[:id] )
+  erb :"rounds/show_round_end"
+end
 
+post "/rounds/:id" do
+  @round = Round.find_by_id( params[:id] )
+  @card = Card.find_by_id( session[ :remaining_cards ].first )
+  @guess = params[:term].downcase == @card.term.downcase
+  guess_helper(!!@guess)
+  redirect "/rounds/#{params[:id]}/end" if session[ :remaining_cards ] == []
+  redirect "/rounds/#{params[:id]}/answer"
+end
 
-#     # create_table :guesses do |t|
-#     #   t.belongs_to :round
-#     #   t.belongs_to :card
-#     #   t.boolean    :correct
-#     #   t.timestamps
-#     # end
-
-# get "/rounds/:id" do
-#   round = Round.create()
-#   @deck = Deck.first
-#   @deck.cards.each_with_index do |card, index|
-#     round.guesses.create(deck: @deck.id, card: card.id)
-#   end
-#   erb :"rounds/show"
-# end
-
-# post ""
-
-# get "/rounds/:round_id/guesses/:guess_id" do
-
-
-
-
-#   #check if the guess has a value yet?
-#   #if it doesn't have a value,
-#     #change the guess.correct is null,
-#   #   #
-#   # guess = Guess.find_by_id(params[:guess_id])
-#   # if guess
-#   #   @card = guess.card
-#   # else
-#   #   "Quiz done"
-#   # end
-
-#   @card = Card.find_by_id(params[:guess_id])
-
-#   @deck = Deck.first
-#   @card =
-#   erb :"rounds/show"
-# end
+get "/rounds/:id/answer" do
+  @correct = session[:last_correct]
+  @card = Card.find_by_id( session[ :last_card ])
+  @round = Round.find_by_id( params[:id] )
+  erb :"rounds/show_last"
+end
 
 
-# /someroute/1
-# card 1
-# post 1
-# card 1 @guess_correct = false/true
-# card 2
-
-# card 11
+get "/rounds/:id" do
+  current_card_id = session[ :remaining_cards ].first
+  @card = Card.find_by_id( current_card_id )
+  @round = Round.find_by_id( params[:id] )
+  erb :"rounds/show"
+end
