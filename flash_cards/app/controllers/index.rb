@@ -11,7 +11,7 @@ def login?
 end
 
 get '/' do
-<<<<<<< HEAD
+
 @alert = params[:alert] if params[:alert]
 erb :index
 end
@@ -59,7 +59,7 @@ get '/cards/:id' do
   @card = Card.find_by_id(params[:id])
   erb :card
 end
-=======
+
   "try /rounds/new/<deck num>"
 end
 
@@ -67,7 +67,7 @@ end
 #   @card = Card.find_by_id(params[:id])
 #   erb :card
 # end
->>>>>>> add core feature rounds, add/change corresponding views, add second small deck to db seed, add migration to track the number of right and wrong questions
+
 
 # post '/cards/:id' do
 #   @card = Card.find_by_id(params[:id])
