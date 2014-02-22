@@ -18,7 +18,31 @@
 
   <title></title>
 </head>
+
 <body>
+  <div class="jumbotron">
+    <div class="row">
+    <ul>
+      <% if login? %>
+      <h1>Hello <%= User.find(session[:id]).name.camelcase %> </h1>
+        <li><a href="#">My Decks</a></li>
+        <li><a href="/logout">Logout</a></li>
+      <% else %>
+        <%if  params[:onpage] == 'yes' %>
+            <h1>Get ready to be Flashed</h1>
+            <li><a href="/cards/1">All Decks</a></li>
+            <li><a href="/">Back to Home</a></li>
+        <% else %>
+          <h1>Get ready to be Flashed</h1>
+          <li><a href="/cards/1">All Decks</a></li>
+          <li><a href="/signup?onpage=yes">New User? Signup here</a></li>
+        <% end %>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+  <div class="container">
   <%= yield %>
+  </div>
 </body>
 </html>

@@ -24,5 +24,12 @@ class InitialMigration < ActiveRecord::Migration
       t.boolean    :correct
       t.timestamps
     end
+
+    create_table :users do |t|
+      t.string :name
+      t.string :user_password
+      t.timestamps
+    end
+
   end
 end
