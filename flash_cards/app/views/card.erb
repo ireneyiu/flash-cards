@@ -1,0 +1,14 @@
+<div class="jumbotron">
+<% if @guess.nil? %>
+  <form action="/cards/<%= @card.id %>" method="post">
+    <p><%= @card.description %></p>
+    <strong>Enter your guess:</strong>
+    <input type="text" name="term">
+    <input type="submit" value="Submit">
+  </form>
+  <% else %>
+  <h1>Feedback</h1>
+  <p><%= feedback(@guess)%></p>
+  <a href="/cards/<%= @card.id + 1 %>">Next</a>
+<% end %>
+</div>
