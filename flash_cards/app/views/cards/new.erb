@@ -1,6 +1,7 @@
 <div class="container">
-  <form method="post" action="/decks/<%= @deck_id %>/cards">
-    <input type="hidden" name="deck_id" value="<%= @deck_id %>">
+  <h3>Add a card to <%= @deck.name %></h3>
+  <form method="post" action="/decks/<%= @deck.id %>/cards">
+    <input type="hidden" name="deck_id" value="<%= @deck.id %>">
     <label>Term:</label>
     <input type="text" name="term">
     <label>Description</label>
