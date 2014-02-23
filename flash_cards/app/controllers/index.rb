@@ -3,7 +3,9 @@ get '/' do
 end
 
 post '/login' do
-  authenticate(params)
+  user = User.find_by_name(params[:name])
+  set_session_id(user) unless user.nil?
+  redirect '/decks'
 end
 
 get '/signup' do
@@ -14,7 +16,7 @@ post '/signup' do
   user = User.create(name: params[:name],
     user_password: params[:user_password])
   if user.valid?
-    session[:id] = user.id
+    set_session_id(user)
     redirect '/decks'
   else
     @errors = user.errors.full_messages
