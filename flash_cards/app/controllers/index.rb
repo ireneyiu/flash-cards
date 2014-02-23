@@ -3,7 +3,6 @@ get '/' do
   erb :index
 end
 
-
 post '/' do
   authenticate(params)
 end

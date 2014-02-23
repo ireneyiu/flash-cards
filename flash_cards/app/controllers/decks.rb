@@ -9,12 +9,13 @@ get '/decks/new' do
 end
 
 post '/decks' do
-  Deck.create(name: params[:name])
+  Deck.create(name: params[:name], user_id: current_user.id)
   redirect "/decks"
 end
 
 get '/decks/:deck_id/cards/new' do
   @deck = Deck.find_by_id(params[:deck_id])
+  redirect '/decks' unless current_user && (current_user.id == @deck.id)
   erb :"cards/new"
 end
 
