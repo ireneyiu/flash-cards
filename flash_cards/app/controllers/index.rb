@@ -1,4 +1,12 @@
 get '/' do
+  if logged_in?
+    redirect '/decks'
+  else
+    erb :index
+  end
+end
+
+get '/login' do
   erb :index
 end
 
@@ -25,3 +33,4 @@ get '/logout/?' do
   session[:id] = nil
   redirect '/'
 end
+
