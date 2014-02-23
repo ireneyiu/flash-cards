@@ -1,10 +1,19 @@
-<div class='login'>
-  <form action="/" method="post">
-    <input class='submissionfield' name="name" placeholder="Username" />
-    <input class='submissionfield' type="password" name="user_password" placeholder="Password" />
-    <input class='button' type='submit' value='Login'><br>
+<div class='well'>
+  <h2>Welcome to Flash Me!</h2>
+  <form role="form" action="/login" method="post">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input class='form-control' id="name" name="name"/>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class='form-control' id="password" type="password" name="user_password"/>
+    </div>
+    <div>
+      <input class='btn btn-primary' type='submit' value='Login'>
+      <a href="/signup">Sign Up</a>
+    </div>
   </form>
-
   <div id='alert'>
     <%= @alert %>
   </div>
