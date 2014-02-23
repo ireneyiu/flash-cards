@@ -3,7 +3,7 @@
     <ul>
       <h1>Flash Me</h1>
       <li><a href="/decks">Decks</a></li>
-      <% if login? %>
+      <% if logged_in? %>
       <h1>Hello <%= User.find(session[:id]).name.camelcase %> </h1>
       <li><a href="/logout">Logout</a></li>
       <% else %>
