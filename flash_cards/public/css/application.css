@@ -22,3 +22,11 @@ ul li{
 h2 {
   text-align: center;
 }
+
+.brand {
+  font-family: 'Droid Serif', serif;
+}
+
+span.brand {
+  color: #d9230f;
+}
