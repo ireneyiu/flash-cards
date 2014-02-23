@@ -6,6 +6,7 @@
       <% if login? %>
       <h1>Hello <%= User.find(session[:id]).name.camelcase %> </h1>
       <li><a href="/logout">Logout</a></li>
+      <li><a href="/users/<%= session[:id] %>/rounds">My Rounds</a></li>
       <% else %>
         <%if  params[:onpage] == 'yes' %>
             <li><a href="/decks">Back to Home</a></li>

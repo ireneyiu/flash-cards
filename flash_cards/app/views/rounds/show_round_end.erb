@@ -2,5 +2,6 @@
   <h1>Its over!</h1>
   <p><%= feedback(@correct)%></p>
   <p><strong><%= @card.term %></strong> was the answer.</p>
+  <%= erb :"rounds/result" %>
   <a href="/decks">Go back to your decks</a>
 </div>

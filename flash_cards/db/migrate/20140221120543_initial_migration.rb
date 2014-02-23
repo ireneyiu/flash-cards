@@ -11,6 +11,7 @@ class InitialMigration < ActiveRecord::Migration
       t.belongs_to :deck
       t.integer    :correct, default: 0
       t.integer    :incorrect, default: 0
+      t.belongs_to :user
       t.timestamps
     end
 
