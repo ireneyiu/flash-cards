@@ -37,7 +37,11 @@ end
 
 get "/rounds/:id" do
   current_card_id = session[ :remaining_cards ].first
-  @card = Card.find_by_id( current_card_id )
-  @round = Round.find_by_id( params[:id] )
-  erb :"rounds/show"
+  if current_card_id
+    @card = Card.find_by_id( current_card_id )
+    @round = Round.find_by_id( params[:id] )
+    erb :"rounds/show"
+  else
+    redirect '/'
+  end
 end

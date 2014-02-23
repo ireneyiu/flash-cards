@@ -3,3 +3,4 @@ get '/users/:user_id/rounds' do
 
   erb :"rounds/list"
 end
+

@@ -13,7 +13,7 @@ helpers do
       set_session_id(@user)
       redirect '/decks'
     else
-      @errors = @user.errors.full_messages
+      @errors = ["Invalid username or password."]
       erb :index
     end
   end

@@ -20,7 +20,4 @@ describe User do
       expect(last_response.body).to include 'Correct: 4, Incorrect: 6'
     end
   end
-
-
-
 end
