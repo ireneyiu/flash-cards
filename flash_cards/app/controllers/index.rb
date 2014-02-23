@@ -11,8 +11,6 @@ end
 
 post '/' do
   authenticate(params)
-
-
 end
 
 get '/signup' do
