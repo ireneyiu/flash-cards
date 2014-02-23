@@ -17,13 +17,7 @@ class InitialMigration < ActiveRecord::Migration
 
     create_table :decks do |t|
       t.string   :name
-      t.timestamps
-    end
-
-    create_table :guesses do |t|
-      t.belongs_to :round
-      t.belongs_to :card
-      t.boolean    :correct
+      t.belongs_to :user
       t.timestamps
     end
 
