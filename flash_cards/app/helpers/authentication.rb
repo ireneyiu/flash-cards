@@ -16,4 +16,8 @@ helpers do
     end
   end
 
+  def login?
+    !!session[:id]
+  end
+
 end

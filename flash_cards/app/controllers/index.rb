@@ -1,11 +1,7 @@
-def login?
-  !!session[:id]
-end
-
 get '/' do
 
-@alert = params[:alert] if params[:alert]
-erb :index
+  @alert = params[:alert] if params[:alert]
+  erb :index
 end
 
 

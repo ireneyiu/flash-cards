@@ -3,10 +3,6 @@
   <ul>
   <% @rounds.each do |round|%>
     <li><%= round.deck.name %> Correct: <%= round.correct %>, Incorrect: <%= round.incorrect %></li>
-    <% if login? %>
-    <a href="/decks/<%= deck.id %>/cards/new">Add a card</a>
-    <a href="/rounds/new/<%= deck.id %>">Play the Deck</a>
-    <% end %>
   <% end %>
   </ul>
 </div>
