@@ -6,4 +6,15 @@ helpers do
   def logged_in?
     !!session[:id]
   end
+
+  def login
+    @user = User.find_by_name(params[:name])
+    if @user && @user.password == params[:password]
+      set_session_id(@user)
+      redirect '/decks'
+    else
+      @errors = @user.errors.full_messages
+      erb :index
+    end
+  end
 end
