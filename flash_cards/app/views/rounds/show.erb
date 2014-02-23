@@ -1,10 +1,10 @@
 <div class="jumbotron">
-<% if @guess.nil? %>
-  <form action="/rounds/<%= @round.id %>" method="post">
-    <p><%= @card.description %></p>
-    <strong>Enter your guess:</strong>
-    <input type="text" name="term">
-    <input type="submit" value="Submit">
-  </form>
-<% end %>
+  <% if @guess.nil? %>
+    <form action="/rounds/<%= @round.id %>" method="post">
+      <p><%= @card.description %></p>
+      <strong>Enter your guess:</strong>
+      <input type="text" name="term">
+      <input type="submit" value="Submit">
+    </form>
+  <% end %>
 </div>
