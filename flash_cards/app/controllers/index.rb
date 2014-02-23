@@ -12,9 +12,11 @@ get '/signup' do
 end
 
 post '/signup' do
-  if User.create(name: params[:name],
-    user_password: params[:user_password]).valid?
-    redirect '/'
+  user = User.create(name: params[:name],
+    user_password: params[:user_password])
+  if user.valid?
+    session[:id] = user.id
+    redirect '/decks'
   else
     redirect '/?alert=Username taken!'
   end
