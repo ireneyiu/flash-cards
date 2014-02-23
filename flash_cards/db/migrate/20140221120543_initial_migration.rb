@@ -9,19 +9,15 @@ class InitialMigration < ActiveRecord::Migration
 
     create_table :rounds do |t|
       t.belongs_to :deck
-      t.integer    :number
+      t.integer    :correct, default: 0
+      t.integer    :incorrect, default: 0
+      t.belongs_to :user
       t.timestamps
     end
 
     create_table :decks do |t|
       t.string   :name
-      t.timestamps
-    end
-
-    create_table :guesses do |t|
-      t.belongs_to :round
-      t.belongs_to :card
-      t.boolean    :correct
+      t.belongs_to :user
       t.timestamps
     end
 

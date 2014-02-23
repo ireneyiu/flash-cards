@@ -9,6 +9,9 @@ Deck.create(name: "MVP Deck")
 end
 
 
+Card.create(term: 'Zoidberg', description: "Why not", deck_id: 2)
+Card.create(term: 'Glen', description: "Hates me", deck_id: 2)
 
 
 
+Deck.create(name: "2")

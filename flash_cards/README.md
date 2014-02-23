@@ -1,24 +1,25 @@
-### Purpose
-The Sinatra Skeleton:
+#Flash Cards
 
-1. Provides a foundation for building challenges.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
-4. Demonstrates that it is not **required** that all models in `app/models` be
-   `ActiveRecord` backed!
-5. Gives bare-bones RSpec skeleton wherewith to start building the practice of testing
+Flash Cards is a web based flash card app. Users can create new decks and drill concepts with their decks. All created decks are available to all users. 
 
-### Quickstart
+Flash Cards was built using Sinatra, Bootstrap, and a Postgres database.
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+##Authors
 
-### Contributing
+Flash Cards is brought to you by Hunter Paull, Matthew Knudsen, Irene Yiu, Brittany Mazza, and Harry Whelchel.
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+###Web Development Concepts
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+-User authentication and authorization.
+-HTTP Requests
+-Password Encryption
+-Session Handling
+-Modeling Database Relationships
+-Test Driven Development
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+####Dependencies
+Sinatra
+Postgres
+ActiveRecord
+Bootstrap
+
