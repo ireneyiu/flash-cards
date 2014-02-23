@@ -15,6 +15,7 @@ end
 
 get '/decks/:deck_id/cards/new' do
   @deck = Deck.find_by_id(params[:deck_id])
+  redirect '/decks' unless current_user && (current_user.id == @deck.id)
   erb :"cards/new"
 end
 
