@@ -1,24 +1,3 @@
-<!-- <div class="jumbotron">
-  <div class="row">
-    <h1>Flash Me</h1>
-    <ul>
-      <li><a href="/decks">Decks</a></li>
-      <% if logged_in? %>
-        <h1>Hello <%= User.find(session[:id]).name.camelcase %> </h1>
-        <li><a href="/decks/new">Create Deck</a></li>
-        <li><a href="/users/<%= session[:id] %>/rounds">My Rounds</a></li>
-        <li><a href="/logout">Logout</a></li>
-      <% else %>
-        <% if params[:onpage] == 'yes' %>
-            <li><a href="/decks">Back to Home</a></li>
-        <% else %>
-          <li><a href="/signup?onpage=yes">Sign Up</a></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-</div> -->
-
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
