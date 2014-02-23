@@ -3,8 +3,8 @@ get "/rounds/new/:deck_id" do
   deck = Deck.find_by_id(params[:deck_id])
   if !!deck
     session[ :remaining_cards ] = deck.cards.shuffle.map{|card| card.id }
-    round = Round.create(user_id: session[:id], deck_id: params[:deck_id])
-    redirect "/rounds/#{params[:deck_id]}"
+    round = Round.create(user_id: current_user.id, deck_id: deck.id)
+    redirect "/rounds/#{deck.id}"
   else
     redirect "/"
   end
