@@ -1,5 +1,4 @@
 get '/' do
-  @alert = params[:alert] if params[:alert]
   erb :index
 end
 
@@ -18,12 +17,12 @@ post '/signup' do
     session[:id] = user.id
     redirect '/decks'
   else
-    redirect '/?alert=Username taken!'
+    @errors = user.errors.full_messages
+    erb :index
   end
 end
 
 get '/logout/?' do
   session[:id] = nil
-  clear_last_term
-  redirect "/?alert=you are logged out!"
+  redirect '/'
 end

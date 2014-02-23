@@ -1,5 +1,12 @@
 <div class='well'>
   <h2>Welcome to Flash Me!</h2>
+  <% if @errors %>
+      <div class="alert alert-danger">
+      <% @errors.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+      </div>
+  <% end %>
   <form role="form" action="/login" method="post">
     <div class="form-group">
       <label for="name">Name</label>
@@ -14,7 +21,4 @@
       <a href="/signup">Sign Up</a>
     </div>
   </form>
-  <div id='alert'>
-    <%= @alert %>
-  </div>
 </div>
