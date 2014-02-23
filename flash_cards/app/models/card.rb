@@ -3,4 +3,5 @@ class Card < ActiveRecord::Base
 
   validates_uniqueness_of :term, :description
   validates_presence_of :term, :description, :deck_id
+
 end

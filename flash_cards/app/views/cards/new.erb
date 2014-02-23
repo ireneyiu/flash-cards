@@ -1,4 +1,8 @@
+
 <div class="container">
+  <% if @last_card_term %>
+    <%= erb :_last_card_term, locals: {term: @last_card_term} %>
+  <% end %>
   <h3>Add a card to <%= @deck.name %></h3>
   <form method="post" action="/decks/<%= @deck.id %>/cards">
     <input type="hidden" name="deck_id" value="<%= @deck.id %>">
