@@ -1,8 +1,17 @@
 <div class="well">
-  <h1>My Rounds</h1>
-  <ul>
-  <% @rounds.each do |round|%>
-    <li><%= round.deck.name %> Correct: <%= round.correct %>, Incorrect: <%= round.incorrect %></li>
-  <% end %>
-  </ul>
+  <h2>Round Summary</h2>
+  <table class="table">
+    <thead>
+      <th>Deck</th>
+      <th>Correct</th>
+      <th>Incorrect</th>
+    </thead>
+    <% @rounds.each do |round|%>
+      <tr>
+        <td><%= round.deck.name %></td>
+        <td><%= round.correct %></td>
+        <td><%= round.incorrect %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
