@@ -1,11 +1,16 @@
 <div class="well">
   <h1>Decks</h1>
+  <a href="/decks/new">Add Deck</a>
   <ul>
   <% @decks.each do |deck|%>
     <li><%= deck.name %></li>
-    <% if login? %>
-    <a href="/decks/<%= deck.id %>/cards/new">Add a card</a>
-    <a href="/rounds/new/<%= deck.id %>">Play the Deck</a>
+    <% if logged_in? %>
+      <% if !deck.cards.empty?  %>
+        <a href="/rounds/new/<%= deck.id %>">Play the Deck</a>
+      <% end %>
+      <% if current_user.id == deck.user_id %>
+        <a href="/decks/<%= deck.id %>/cards/new">Add a card</a>
+      <% end %>
     <% end %>
   <% end %>
   </ul>
