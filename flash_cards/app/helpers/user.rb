@@ -1,7 +1,7 @@
 helpers do
   def authenticate(params)
     user = params[:name]
-    password = params[:user_password]
+    password = params[:password]
     member = User.find_by_name(user)
     if member == nil || false
       redirect "/?alert=You entered an incorrect username"
