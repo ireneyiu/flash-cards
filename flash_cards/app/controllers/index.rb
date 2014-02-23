@@ -10,8 +10,8 @@ def login?
 end
 
 get '/' do
-@alert = params[:alert] if params[:alert]
-erb :index
+  @alert = params[:alert] if params[:alert]
+  erb :index
 end
 
 
@@ -40,7 +40,7 @@ end
 post '/signup' do
   if User.create(name: params[:name],
     user_password: params[:user_password]).valid?
-  redirect '/'
+    redirect '/'
   else
     redirect '/?alert=Username taken!'
   end
