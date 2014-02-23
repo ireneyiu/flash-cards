@@ -1,4 +1,3 @@
-
 #please link your decks here to start a new round
 get "/rounds/new/:deck_id" do
   deck = Deck.find_by_id(params[:deck_id])
@@ -10,7 +9,7 @@ get "/rounds/new/:deck_id" do
     redirect "/"
   end
 end
- 
+
 get "/rounds/:id/end" do
   @correct = session[:last_correct]
   @card = Card.find_by_id( session[ :last_card ])

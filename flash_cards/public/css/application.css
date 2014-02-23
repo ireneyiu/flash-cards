@@ -1,16 +1,10 @@
-/*.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
-}*/
-
 th {
   text-align: left;
 }
 
 ul li{
-      display:inline;
+  /*    display:inline;*/
+    list-style: none;
       margin: 15px;
       font-size: 1.5em;
     }
@@ -18,7 +12,6 @@ ul li{
 .login {
   margin-top: 100px;
   margin-left: 200px;
-
 }
 
 #alert {
