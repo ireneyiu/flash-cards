@@ -24,5 +24,6 @@ end
 
 get '/logout/?' do
   session[:id] = nil
+  clear_last_term
   redirect "/?alert=you are logged out!"
 end
