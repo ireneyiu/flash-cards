@@ -1,4 +1,11 @@
 get '/' do
+=begin review
+Guard Clause helps simplify conditionals
+
+redirect '/decks' unless logged_in?
+erb :index
+
+=end
   if logged_in?
     redirect '/decks'
   else
@@ -28,6 +35,11 @@ post '/signup' do
     erb :index
   end
 end
+
+
+=begin review
+  why the ? thing?
+=end
 
 get '/logout/?' do
   session[:id] = nil

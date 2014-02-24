@@ -16,6 +16,16 @@ class User < ActiveRecord::Base
     self.user_password = @password
   end
 
+=begin review
+
+Is this necessary?  I don't think so.
+
+ActiveRecord.create should pass an assignment of password i.e. password= to
+line 14 for you for FREE!  This is the beauty of overriding methods and
+the beauty of BCrypt.
+
+=end
+
   def self.create(params)
     @user = User.new(params)
     @user.password = params[:user_password]

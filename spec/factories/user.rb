@@ -1,3 +1,12 @@
+=begin review
+
+You're lying to me!  You said that you were creating a fixture for a user.rb,
+but lo and behold you're creating Factories for a number of models.  Break this
+down into a number of smaller files.  Files are friends, not enemies.
+
+BUT:  Super cool that you're using FactoryGirl <3
+=end
+
 FactoryGirl.define do
   factory :user do
     name "Test User"
