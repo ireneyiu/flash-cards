@@ -1,16 +1,25 @@
-glenmeisters
-============
+#Flash Cards
 
-MVP by 5:00 pm. 
-Lots of communication.
-Reevaluate work progress at 7:00 pm tonight.
+Flash Cards is a web based flash card app. Users can create new decks and drill concepts with their decks. All created decks are available to all users. 
 
-Chermaine - Remote on weekend
-Irene - Friday evening conflict and saturday conflict
-Matthew - Saturday noon to 3ish conflict
+Flash Cards was built using Sinatra, Bootstrap, and a Postgres database.
 
-Optional working in lunch
+##Authors
 
-Pairing!
+Flash Cards is brought to you by Hunter Paull, Matthew Knudsen, Irene Yiu, Brittany Mazza, and Harry Whelchel.
 
-Here is our [trello board](https://trello.com/b/nwR6fFmN/web-flash-cards)
+###Web Development Concepts
+
+-User authentication and authorization.
+-HTTP Requests
+-Password Encryption
+-Session Handling
+-Modeling Database Relationships
+-Test Driven Development
+
+####Dependencies
+Sinatra
+Postgres
+ActiveRecord
+Bootstrap
+
