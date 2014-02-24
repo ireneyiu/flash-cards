@@ -28,5 +28,6 @@ group :test do
 end
 
 group :test, :development do
+  gem 'database_cleaner'
   gem 'factory_girl'
 end

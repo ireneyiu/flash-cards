@@ -1,20 +1,34 @@
 require 'spec_helper'
 
+##THESE TESTS ARE NO LONGER WORKING
+# I have tried getting factory girl and clean_database to reset the database
+# and re-seed it every test, but it still keeps saying that Name has already
+# been taken. When I remove that validation from the user model, it just says
+# that nil is not a symbol.
+
+# Nothing is really printing, and so I've been spinning my wheels for a couple
+# of hours now and am giving up on it for the day. I may revisit the tests later
+# on after I've got more practice with testing.
+
 describe 'DecksController' do
+  before(:each) do
+    FactoryGirl.create(:user)
+    FactoryGirl.create(:card)
+  end
+
+
   describe 'add deck functionality' do
+    let(:user_attrs){FactoryGirl.attributes_for(:user)}
+    let(:deck_attrs){FactoryGirl.attributes_for(:deck)}
+
     it 'should display the add deck form' do
+
       get '/decks/new'
       expect(last_response.body).to include('New Deck')
     end
 
     it 'should add a deck when given a name' do
-      params = {
-        name: "deck"
-      }
-      expect{
-        post('/decks', params)
-      }.to change(Deck, :count).by(1)
-      expect(last_response.status).to be(302)
+      expect{ post('/decks', deck_attrs) }.to change(Deck.count).by(1)
     end
 
     it 'should not add a deck with no name' do

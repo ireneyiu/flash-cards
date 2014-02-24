@@ -24,8 +24,8 @@ class InitialMigration < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :user_password
+      t.string :email
       t.timestamps
     end
-
   end
 end
