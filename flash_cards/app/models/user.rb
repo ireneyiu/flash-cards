@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_many :decks
   has_many :rounds
-  validates_uniqueness_of :name
+  validates_uniqueness_of :email
   validates_presence_of :name, :user_password
+  validates_presence_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+/
 
   include BCrypt
 
@@ -21,6 +22,4 @@ class User < ActiveRecord::Base
     @user.save!
     @user
   end
-
-
 end
