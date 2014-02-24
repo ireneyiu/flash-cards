@@ -30,3 +30,15 @@ h2 {
 span.brand {
   color: #d9230f;
 }
+
+.deck-list{
+  padding-left: 0;
+}
+
+.deck-item h2 {
+  display: inline;
+}
+
+.card-container {
+  text-align: center;
+}

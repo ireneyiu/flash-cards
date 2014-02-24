@@ -1,16 +1,22 @@
+<div class="card-container">
+  <div class="well">
+    <% if @last_card_term %>
+      <%= erb :_last_card_term, locals: {term: @last_card_term} %>
+    <% end %>
+    <h3>Add a card to <span class="brand"><%= @deck.name %></span></h3>
+    <form method="post" action="/decks/<%= @deck.id %>/cards">
+      <input type="hidden" name="deck_id" value="<%= @deck.id %>">
 
-<div class="container">
-  <% if @last_card_term %>
-    <%= erb :_last_card_term, locals: {term: @last_card_term} %>
-  <% end %>
-  <h3>Add a card to <%= @deck.name %></h3>
-  <form method="post" action="/decks/<%= @deck.id %>/cards">
-    <input type="hidden" name="deck_id" value="<%= @deck.id %>">
-    <label>Term:</label>
-    <input type="text" name="term">
-    <label>Description</label>
-    <input type="text" name="description">
-    <input type="submit" value="Add New Card">
-  </form>
-  <a href="/decks">Done Adding Cards</a>
+      <div class="form-group">
+        <label for="name">Term:</label>
+        <input class='form-control' id="text" name="term"/>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input class='form-control' id="description" name="description"/>
+      </div>
+      <input type="submit" value="Add New Card" class="btn btn-primary">
+    </form>
+    <a href="/decks">Done Adding Cards</a>
+  </div>
 </div>
