@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'database_cleaner'
 
 # All our specs should require 'spec_helper' (this file)
 
@@ -17,6 +18,21 @@ FactoryGirl.find_definitions
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
 
 def app
