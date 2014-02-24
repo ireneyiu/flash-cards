@@ -5,7 +5,7 @@ get "/rounds/new/:deck_id" do
     clear_last_term
     session[ :remaining_cards ] = deck.cards.shuffle.map{|card| card.id }
     round = Round.create(user_id: current_user.id, deck_id: deck.id)
-    redirect "/rounds/#{deck.id}"
+    redirect "/rounds/#{round.id}"
   else
     redirect "/"
   end
