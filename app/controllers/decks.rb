@@ -11,6 +11,17 @@ get '/decks/new' do
 end
 
 post '/decks' do
+
+=begin comment
+
+Use the power of Active record!
+
+User.find(current_user.id).decks.create(name: params[:name])
+
+AWESOMAH POWER!
+
+=end
+
   Deck.create(name: params[:name], user_id: current_user.id)
   redirect "/decks"
 end
