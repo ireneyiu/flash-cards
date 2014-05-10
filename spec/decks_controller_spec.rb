@@ -11,24 +11,23 @@ require 'spec_helper'
 # on after I've got more practice with testing.
 
 describe 'DecksController' do
-  before(:each) do
-    FactoryGirl.create(:user)
-    FactoryGirl.create(:card)
-  end
 
+  let(:user) { FactoryGirl.create(:user) }
+  let(:card) { FactoryGirl.create(:card) }
+  let!(:user_attrs) { FactoryGirl.attributes_for(:user) }
+  let!(:deck_attrs) { FactoryGirl.attributes_for(:deck) }
 
   describe 'add deck functionality' do
-    let(:user_attrs){FactoryGirl.attributes_for(:user)}
-    let(:deck_attrs){FactoryGirl.attributes_for(:deck)}
 
     it 'should display the add deck form' do
-
       get '/decks/new'
       expect(last_response.body).to include('New Deck')
     end
 
     it 'should add a deck when given a name' do
-      expect{ post('/decks', deck_attrs) }.to change(Deck.count).by(1)
+      expect{
+        post('/decks', deck_attrs)
+      }.to change{Deck.count}.by(1)
     end
 
     it 'should not add a deck with no name' do

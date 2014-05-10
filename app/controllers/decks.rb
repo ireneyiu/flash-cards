@@ -11,7 +11,7 @@ get '/decks/new' do
 end
 
 post '/decks' do
-  Deck.create(name: params[:name], user_id: current_user.id)
+  Deck.create(params)
   redirect "/decks"
 end
 
