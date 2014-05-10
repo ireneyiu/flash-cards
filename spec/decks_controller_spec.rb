@@ -3,11 +3,13 @@ require 'spec_helper'
 describe 'DecksController' do
 
   let(:user) { FactoryGirl.create(:user) }
+  let(:deck) { FactoryGirl.create(:deck) }
   let(:card) { FactoryGirl.create(:card) }
+  let(:session) {{ 'rack.session' => {id: deck.user_id } }}
 
   describe 'add deck functionality' do
     let!(:deck_attrs) { FactoryGirl.attributes_for(:deck) }
-    
+
     it 'should display the add deck form' do
       get '/decks/new'
       expect(last_response.body).to include('New Deck')
@@ -30,8 +32,8 @@ describe 'DecksController' do
 
   describe 'add card functionality' do
     it 'should display the add card form' do
-      get '/decks/:deck_id/cards/new'
-      expect(last_response.body).to include "New Card"
+      get "/decks/#{deck.id}/cards/new", "", session
+      expect(last_response.body).to include('New Card')
     end
 
     it 'should add a valid card' do

@@ -18,7 +18,7 @@ end
 get '/decks/:deck_id/cards/new' do
   @deck = Deck.find_by_id(params[:deck_id])
   @last_card_term = session[:last_card_term] || nil
-  redirect '/decks' unless current_user && (current_user.id == @deck.user_id)
+  redirect '/decks' unless current_user && (current_user == @deck.user)
   erb :"cards/new"
 end
 
