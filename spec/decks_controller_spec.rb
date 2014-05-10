@@ -4,11 +4,10 @@ describe 'DecksController' do
 
   let(:user) { FactoryGirl.create(:user) }
   let(:card) { FactoryGirl.create(:card) }
-  let!(:user_attrs) { FactoryGirl.attributes_for(:user) }
-  let!(:deck_attrs) { FactoryGirl.attributes_for(:deck) }
 
   describe 'add deck functionality' do
-
+    let!(:deck_attrs) { FactoryGirl.attributes_for(:deck) }
+    
     it 'should display the add deck form' do
       get '/decks/new'
       expect(last_response.body).to include('New Deck')
