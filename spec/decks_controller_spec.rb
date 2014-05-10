@@ -1,15 +1,5 @@
 require 'spec_helper'
 
-##THESE TESTS ARE NO LONGER WORKING
-# I have tried getting factory girl and clean_database to reset the database
-# and re-seed it every test, but it still keeps saying that Name has already
-# been taken. When I remove that validation from the user model, it just says
-# that nil is not a symbol.
-
-# Nothing is really printing, and so I've been spinning my wheels for a couple
-# of hours now and am giving up on it for the day. I may revisit the tests later
-# on after I've got more practice with testing.
-
 describe 'DecksController' do
 
   let(:user) { FactoryGirl.create(:user) }
