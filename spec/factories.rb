@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    name "Test User"
+    sequence(:name) {|n| "person#{n}" }
     user_password  "1234"
-    email "test5@example.com"
+    sequence(:email) {|n| "name#{n}@example.com" }
   end
 
   factory :deck do
@@ -14,11 +14,5 @@ FactoryGirl.define do
     term  "card"
     description "answer"
     deck
-  end
-end
-
-FactoryGirl.define do
-  sequence :name do |n|
-    "name#{n}"
   end
 end
