@@ -22,9 +22,8 @@ describe 'DecksController' do
     end
 
     it 'should not add a deck with no name' do
-      params = {}
       expect{
-        post('/decks', params)
+        post('/decks', {})
       }.not_to change{Deck.count}.by(1)
     end
 
