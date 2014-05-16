@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe 'DecksController' do
 
-  let(:user) { FactoryGirl.create(:user) }
-  let(:deck) { FactoryGirl.create(:deck) }
-  let(:card) { FactoryGirl.create(:card) }
+  let(:user) { create(:user) }
+  let(:deck) { create(:deck) }
+  let(:card) { create(:card) }
   let(:session) {{ 'rack.session' => {id: deck.user_id } }}
 
   describe 'add deck functionality' do
-    let!(:deck_attrs) { FactoryGirl.attributes_for(:deck) }
+    let!(:deck_attrs) { attributes_for(:deck) }
 
     it 'should display the add deck form' do
       get '/decks/new'
