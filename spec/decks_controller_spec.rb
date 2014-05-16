@@ -36,15 +36,9 @@ describe 'DecksController' do
     end
 
     it 'should add a valid card' do
-      deck_id = Deck.last.id
-      params = {
-        term:         "termdfgh #{deck_id}",
-        description:  "descriptlkdbjion #{deck_id}",
-        deck_id:      "#{deck_id}"
-      }
       expect{
-        post("/decks/#{deck_id}/cards", params)
-      }.to change(Deck.find(deck_id).cards, :count).by(1)
+        post("/decks/#{deck.id}/cards", {term: "My new term", description:  "My new"})
+      }.to change(deck.cards, :count).by(1)
     end
 
     it 'should not add an invalid card' do
