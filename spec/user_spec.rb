@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  before(:all) do
-    @user = FactoryGirl.create(:user)
-  end
+
+  let(:user) { create(:user) }
 
   describe "validating presence & uniqueness" do
     it { should validate_presence_of(:name) }
@@ -14,9 +13,9 @@ describe User do
 
   context 'viewing round history' do
     it 'should list past rounds' do
-      @user.rounds.create(deck_id: 1, correct: 5, incorrect: 5)
-      @user.rounds.create(deck_id: 2, correct: 4, incorrect: 6)
-      get "/users/#{@user.id}/rounds"
+      user.rounds.create(deck_id: 1, correct: 5, incorrect: 5)
+      user.rounds.create(deck_id: 2, correct: 4, incorrect: 6)
+      get "/users/#{user.id}/rounds"
       expect(last_response).to be_ok
       expect(last_response.body).to include 'Correct: 4, Incorrect: 6'
     end

@@ -43,7 +43,7 @@ describe 'DecksController' do
 
     it 'should not add an invalid card' do
       expect{
-        post("/decks/#{deck_id}/cards", {term: "My new term"})
+        post("/decks/#{deck.id}/cards", {term: "My new term"})
       }.not_to change(deck.cards, :count).by(1)
     end
   end
